@@ -6,6 +6,13 @@ class StudentsController < ApplicationController
   end
 
   def show
+    set_student
+  end
+
+  def active 
+    set_student
+    @student.toggle(:active).save
+    redirect_to student_path(@student)
   end
 
   private
